@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scroll-bar::-webkit-scrollbar {
+  width: 10px;
+}
+.scroll-bar::-webkit-scrollbar-track {
+  @apply bg-purple-400;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb {
+  @apply bg-purple-800 rounded;
+}

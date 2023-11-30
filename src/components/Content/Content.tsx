@@ -1,0 +1,41 @@
+import { useSearchParams } from "react-router-dom";
+import { useRecipe } from "../../hooks/useRecipe";
+
+const Content = () => {
+  const [searchParams] = useSearchParams();
+  const name = searchParams.get("name") || "";
+  const { data, isLoading } = useRecipe(name);
+
+  console.log({ data });
+
+  return (
+    <main className="min-h-screen w-full bg-gray-500 flex-1 p-4">
+      {isLoading && "Loading..."}
+      {data && (
+        <>
+          <h2 className="text-4xl text-center font-semibold">{data?.name}</h2>
+          <div className="mt-4">
+            <h3 className="text-xl font-medium mb-4 uppercase">
+              Ingreredients:
+            </h3>
+            <ul className="ml-8 list-decimal">
+              {data.ingredients.map((ingredient: string) => (
+                <li className="text-lg">{ingredient}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="mt-4">
+            <h3 className="text-xl font-medium mb-4 uppercase">Instruction:</h3>
+            <ul className="ml-8 list-decimal">
+              {data.instruction.map((ingredient: string) => (
+                <li className="text-lg">{ingredient}</li>
+              ))}
+            </ul>
+          </div>
+        </>
+      )}
+    </main>
+  );
+};
+
+export default Content;
