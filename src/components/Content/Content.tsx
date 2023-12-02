@@ -6,8 +6,6 @@ const Content = () => {
   const name = searchParams.get("name") || "";
   const { data, isLoading } = useRecipe(name);
 
-  console.log({ data });
-
   return (
     <main className="min-h-screen w-full bg-gray-500 flex-1 p-4">
       {isLoading && "Loading..."}

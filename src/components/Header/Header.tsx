@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { IoIosAdd } from "react-icons/io";
 import { Link } from "react-router-dom";
+import Modal from "../Modal";
 
 interface HeaderProps {
   children?: React.ReactNode;
@@ -14,6 +16,8 @@ const Header: React.FC<HeaderProps> = ({
   refetch,
   searchQuery,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     refetch();
@@ -41,11 +45,15 @@ const Header: React.FC<HeaderProps> = ({
         {/* <button className="hover:bg-purple-500 rounded-lg px-2">
           <IoIosBookmark className="text-2xl" />
         </button> */}
-        <button className="flex items-center font-medium hover:bg-purple-500 rounded-lg px-2">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="flex items-center font-medium hover:bg-purple-500 rounded-lg px-2"
+        >
           <IoIosAdd className="text-3xl font-extrabold mr-[-5px]" />
           Add Recipe
         </button>
       </div>
+      <Modal isOpen={isModalOpen} onCloseModal={() => setIsModalOpen(false)} />
     </header>
   );
 };
