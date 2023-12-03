@@ -13,8 +13,10 @@ mongoose
   .connect(DB, {
     dbName: process.env.DB_NAME,
   })
-  .then(() => console.log('Database connected'));
+  .then(() => {
+    console.log('Database connected');
 
-app.listen(port, () => {
-  console.log(`app running on port ${port}`);
-});
+    app.listen(port, () => {
+      console.log(`app running on port ${port}`);
+    });
+  });
