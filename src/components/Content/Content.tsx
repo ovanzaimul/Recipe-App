@@ -9,7 +9,7 @@ const Content = () => {
   return (
     <main className="min-h-screen w-full bg-gray-500 flex-1 p-4">
       {isLoading && "Loading..."}
-      {data && (
+      {data ? (
         <>
           <h2 className="text-4xl text-center font-semibold">{data?.name}</h2>
           <div className="mt-4">
@@ -35,6 +35,10 @@ const Content = () => {
             </ul>
           </div>
         </>
+      ) : (
+        <p className="text-center font-semibold text-gray-700">
+          No recipe selected or no recipe found with that name
+        </p>
       )}
     </main>
   );
