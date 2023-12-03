@@ -1,7 +1,10 @@
 import axios from "axios";
 
+const isDevelopmentMode = import.meta.env.MODE === "development";
+const origin = isDevelopmentMode ? "http://localhost:3000" : "";
+
 const recipesApi = axios.create({
-  baseURL: "http://localhost:3000/api/v1/recipes",
+  baseURL: `${origin}/api/v1/recipes`,
 });
 
 export interface Recipe {
