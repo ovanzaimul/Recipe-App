@@ -16,7 +16,7 @@ const SearchResult: React.FC<SearchResultProps> = ({ recipes, isLoading }) => {
       {isLoading && "Loading..."}
       {recipes.length <= 0 ? (
         <p className="text-center mt-4">
-          No recipes found, try change the search query!
+          No recipes found, start searching or try change the search query!
         </p>
       ) : (
         <ul>
