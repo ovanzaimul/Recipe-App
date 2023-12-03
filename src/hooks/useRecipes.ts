@@ -1,7 +1,7 @@
-import { useQuery } from "react-query";
-import { getAllRecipes } from "../api/recipes";
+import { useMutation, useQuery } from "react-query";
+import { addRecipe, getAllRecipes, getRecipe } from "../api/recipes";
 
-const useRecipes = (searchQuery: string = "") => {
+export const useRecipes = (searchQuery: string = "") => {
   const query = useQuery(["recipes"], () => getAllRecipes(searchQuery), {
     refetchOnWindowFocus: false,
     enabled: false,
@@ -11,4 +11,16 @@ const useRecipes = (searchQuery: string = "") => {
   return { ...query, data };
 };
 
-export default useRecipes;
+export const useRecipe = (name: string) => {
+  const query = useQuery(["recipe", name], () => getRecipe(name), {
+    staleTime: Infinity,
+  });
+
+  return { ...query, data: query.data?.recipe };
+};
+
+export const useAddRecipe = () => {
+  const mutation = useMutation(addRecipe);
+
+  return mutation;
+};

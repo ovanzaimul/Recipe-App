@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useRecipes from "../../hooks/useRecipes";
+import { useRecipes } from "../../hooks/useRecipes";
 import Header from "../Header";
 import SearchResult from "../SearchResult";
 import Content from "../Content";

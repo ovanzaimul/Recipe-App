@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-import { useRecipe } from "../../hooks/useRecipe";
+import { useRecipe } from "../../hooks/useRecipes";
 
 const Content = () => {
   const [searchParams] = useSearchParams();
@@ -17,16 +17,20 @@ const Content = () => {
               Ingreredients:
             </h3>
             <ul className="ml-8 list-decimal">
-              {data.ingredients.map((ingredient: string) => (
-                <li className="text-lg">{ingredient}</li>
+              {data.ingredients.map((ingredient: string, index: number) => (
+                <li key={index} className="text-lg">
+                  {ingredient}
+                </li>
               ))}
             </ul>
           </div>
           <div className="mt-4">
             <h3 className="text-xl font-medium mb-4 uppercase">Instruction:</h3>
             <ul className="ml-8 list-decimal">
-              {data.instruction.map((ingredient: string) => (
-                <li className="text-lg">{ingredient}</li>
+              {data.instruction.map((ingredient: string, index: number) => (
+                <li key={index} className="text-lg">
+                  {ingredient}
+                </li>
               ))}
             </ul>
           </div>
