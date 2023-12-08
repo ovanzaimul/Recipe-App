@@ -1,6 +1,11 @@
 class AppError extends Error {
   status: string;
   isOperational: boolean;
+  code?: number;
+  value?: string;
+  path?: string;
+  kind?: string;
+
   constructor(
     message: string,
     public statusCode: number,

@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:run": "nodemon build/server.js",
+    "start:run": "SET NODE_ENV=development&& nodemon build/server.js",
     "start:watch": "tsc -w",
     "dev": "concurrently npm:start:*",
+    "dev:prod": "concurrently \"SET NODE_ENV=production&& nodemon build/server.js\" \"tsc -w\"",
     "build": "tsc",
     "start": "node build/server.js"
   },
