@@ -9,7 +9,7 @@ import AppError from './utils/AppError';
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 app.use('/api/v1/recipes', recipesRouter);
 
