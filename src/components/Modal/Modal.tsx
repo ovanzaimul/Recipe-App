@@ -66,7 +66,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onCloseModal }) => {
   };
 
   return (
-    <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-purple-600 rounded-md p-5 max-w-[600px] w-2/3">
+    <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-purple-600 rounded-md p-5 max-w-[600px] w-2/3 h-[425px] overflow-y-auto">
       <button
         onClick={onCloseModal}
         className="text-4xl absolute top-0 right-2"
